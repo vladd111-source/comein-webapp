@@ -21,9 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   startGameBtn.addEventListener('click', () => {
-    const mode = localStorage.getItem('gameMode') || 'default';
-    alert("Игра начинается в режиме: " + mode);
-    startGame(); // теперь будет вызываться корректно
+   const mode = localStorage.getItem('gameMode') || 'default';
+let modeText = '';
+
+if (mode === 'intense') {
+  modeText = 'НА ПРЕДЕЛЕ';
+} else if (mode === 'hidden') {
+  modeText = 'СКРЫТНО';
+} else {
+  modeText = 'ОБЫЧНЫЙ';
+}
+
+alert("Игра начинается в режиме: " + modeText);
+startGame();
   });
 });
 
