@@ -62,13 +62,21 @@ function startGame() {
   const btn1 = document.createElement('button');
   btn1.className = 'scene-btn';
   btn1.innerText = '📍 Осмотреться вокруг';
-  btn1.onclick = () => alert('Ты начал смотреть. Что-то приближается…');
+ btn1.onclick = () => showComingSoonModal();
 
   const btn2 = document.createElement('button');
   btn2.className = 'scene-btn';
   btn2.innerText = '🚪 Пойти наугад в переулок';
-  btn2.onclick = () => alert('Ты свернул — и город начал говорить.');
+  btn2.onclick = () => showComingSoonModal();
 
   sceneChoices.appendChild(btn1);
   sceneChoices.appendChild(btn2);
+}
+function showComingSoonModal() {
+  const modal = document.getElementById('modalOverlay');
+  modal.style.display = 'flex';
+
+  document.getElementById('closeModalBtn').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 }
