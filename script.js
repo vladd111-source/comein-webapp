@@ -23,8 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
   startGameBtn.addEventListener('click', () => {
     const mode = localStorage.getItem('gameMode') || 'default';
     alert("Игра начинается в режиме: " + mode);
-    // startGame(); // ← потом добавим вызов основного сюжета
+    startGame(); // теперь будет вызываться корректно
   });
+});
+
+
+// ✅ ВНЕ document.addEventListener — доступно глобально
 function startGame() {
   document.getElementById('startScreen').style.display = 'none';
   const sceneContainer = document.getElementById('sceneContainer');
@@ -32,7 +36,6 @@ function startGame() {
 
   const mode = localStorage.getItem('gameMode') || 'default';
 
-  // Первый текст — можно кастомизировать по mode
   let text = "Ты стоишь в центре города, который тебе незнаком.\nОн молчит, но дышит.\nЧто ты сделаешь первым?";
 
   if (mode === 'intense') {
@@ -59,5 +62,3 @@ function startGame() {
   sceneChoices.appendChild(btn1);
   sceneChoices.appendChild(btn2);
 }
-  
-});
